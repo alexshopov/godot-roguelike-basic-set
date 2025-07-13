@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds04mv5fuo2tp"]
+
+[ext_resource type="Script" uid="uid://ce7yn3rupkiii" path="res://entities/characters/player/Player.cs" id="1_eoic6"]
+[ext_resource type="PackedScene" uid="uid://chb37ej0rfrx7" path="res://entities/characters/player/assets/voxel_warrior.glb" id="1_jiqs4"]
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_eoic6")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="voxel_warrior" parent="Pivot" instance=ExtResource("1_jiqs4")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
