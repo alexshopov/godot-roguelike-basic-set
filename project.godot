@@ -13,6 +13,7 @@ config_version=5
 config/name="Godot Roguelike Basic Set"
 run/main_scene="uid://ky07vj2ypvjb"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
+boot_splash/bg_color=Color(0.0253638, 0.0253638, 0.0253638, 1)
 config/icon="res://assets/icons/icon.svg"
 
 [display]
@@ -24,3 +25,7 @@ window/stretch/mode="viewport"
 [dotnet]
 
 project/assembly_name="Godot Roguelike Basic Set"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.0962047, 0.0962048, 0.0962047, 1)
