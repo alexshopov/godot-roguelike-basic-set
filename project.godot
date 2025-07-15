@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="Godot Roguelike Basic Set"
-run/main_scene="uid://ky07vj2ypvjb"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 boot_splash/bg_color=Color(0.0253638, 0.0253638, 0.0253638, 1)
 config/icon="res://assets/icons/icon.svg"
