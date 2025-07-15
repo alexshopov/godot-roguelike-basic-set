@@ -11,3 +11,5 @@ Configure Godot and VSCode for C# development.
 Create a scene and a "Hello r/roguelikedev" script.
 
 Setup debugging in VSCode.
+
+## Part 1 - Creating and Moving the Player
