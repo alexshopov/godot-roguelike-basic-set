@@ -6,8 +6,14 @@ The project devlog can be found at https://alexshopov.com/godot-roguelike-basic-
 
 ## Part 0 - Setting Up
 
-Configure Godot and VSCode for C# development.
+- Configure Godot and VSCode for C# development.
+- Create a scene and a "Hello r/roguelikedev" script.
 
-Create a scene and a "Hello r/roguelikedev" script.
+## Part 1 - Creating and Moving the Player
 
-Setup debugging in VSCode.
+- Establish the project directory structure
+- Create a Player scene and import its model
+- Define initial input actions
+- Configure an isometric camera
+- Translate the mouse position to grid coordinates
+- Implement mouse-based movement
