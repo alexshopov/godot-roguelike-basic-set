@@ -13,8 +13,7 @@ The project devlog can be found at https://alexshopov.com/godot-roguelike-basic-
 
 - Establish the project directory structure
 - Create a Player scene and import its model
-- Configure an isometric camera
-- Set up the map grid data structure
-- Translate the mouse position to grid coordinates
 - Define initial input actions
+- Configure an isometric camera
+- Translate the mouse position to grid coordinates
 - Implement mouse-based movement
