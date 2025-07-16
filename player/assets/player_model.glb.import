@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bjihfi31rd0pr"
-path="res://.godot/imported/voxel_warrior.glb-b2325e587803d3e4813b43ddf2bbed7b.scn"
+uid="uid://cpqqct7rq5re4"
+path="res://.godot/imported/player_model.glb-e027f499ee4ef240663bc56a56d3b5c5.scn"
 
 [deps]
 
-source_file="res://player/assets/voxel_warrior.glb"
-dest_files=["res://.godot/imported/voxel_warrior.glb-b2325e587803d3e4813b43ddf2bbed7b.scn"]
+source_file="res://player/assets/player_model.glb"
+dest_files=["res://.godot/imported/player_model.glb-e027f499ee4ef240663bc56a56d3b5c5.scn"]
 
 [params]
 

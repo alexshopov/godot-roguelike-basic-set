@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7yjdlclnftsx"]
+[gd_scene load_steps=2 format=3 uid="uid://dnv0cbox6oxda"]
 
-[ext_resource type="PackedScene" uid="uid://bjihfi31rd0pr" path="res://player/assets/voxel_warrior.glb" id="1_oul6g"]
+[ext_resource type="PackedScene" uid="uid://cpqqct7rq5re4" path="res://player/assets/player_model.glb" id="1_oul6g"]
 
 [node name="Player" type="Node3D"]
 
-[node name="voxel_warrior" parent="." instance=ExtResource("1_oul6g")]
+[node name="player_model" parent="." instance=ExtResource("1_oul6g")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
