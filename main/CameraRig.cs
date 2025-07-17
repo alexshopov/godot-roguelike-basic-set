@@ -8,15 +8,15 @@ public partial class CameraRig : Node3D {
 	/// Camera pan speed multiplier. Scales based on zoom level.
 	/// </summary>
 	[Export]
-	private float cameraPanSpeed = 0.125f;
+	public float CameraPanSpeed = 0.125f;
 
-	private Camera3D camera;
+	private Camera3D _camera;
 
 	/// <summary>
 	/// Called when the CameraRig enters the scene tree. Initializes the camera reference.
 	/// </summary>
     public override void _Ready() {
-		camera = GetNode<Camera3D>("Camera3D");
+		_camera = GetNode<Camera3D>("Camera3D");
     }
 
 	/// <summary>
@@ -24,7 +24,7 @@ public partial class CameraRig : Node3D {
 	/// </summary>
 	/// <param name="delta">Time elapsed since the previous frame.</param>
 	public override void _Process(double delta) {
-		Vector3 forward = Transform.Basis.Z.Normalized() * cameraPanSpeed;
+		Vector3 forward = Transform.Basis.Z.Normalized() * CameraPanSpeed;
 		Transform3D newTransform = Transform;
 
 		if (Input.IsActionPressed("camera_pan_up"))
@@ -50,15 +50,15 @@ public partial class CameraRig : Node3D {
 	/// <param name="event"></param>
     public override void _Input(InputEvent @event) {
 		if (Input.IsActionJustPressed("camera_zoom_out")) {
-			if (camera.Size < 30f) {
-				camera.Size += 1f;
-				cameraPanSpeed = camera.Size / 100f;
+			if (_camera.Size < 30f) {
+				_camera.Size += 1f;
+				CameraPanSpeed = _camera.Size / 100f;
 			}
 		}
 		else if (Input.IsActionJustPressed("camera_zoom_in")) {
-			if (camera.Size > 3f) {
-				camera.Size -= 1f;
-				cameraPanSpeed = camera.Size / 100f;
+			if (_camera.Size > 3f) {
+				_camera.Size -= 1f;
+				CameraPanSpeed = _camera.Size / 100f;
 			}
 		}
 	}

@@ -5,11 +5,11 @@ using Godot;
 /// </summary>
 public partial class Main : Node3D {
 	[Export]
-	private Node3D player;
+	public Node3D Player;
 	[Export]
-	private Camera3D camera3D;
+	public Camera3D Camera;
 
-	private Tween tween;
+	private Tween _tween;
 
 	public override void _Ready() { }
 
@@ -20,10 +20,10 @@ public partial class Main : Node3D {
 	public override void _Process(double delta) {
 		if (Input.IsActionJustPressed("left_click")) {
 			// prevent starting a new tween if one is already running
-			if (tween != null && tween.IsRunning())
+			if (_tween != null && _tween.IsRunning())
 				return;
 
-			Vector3 playerPos = player.GlobalTransform.Origin;
+			Vector3 playerPos = Player.GlobalTransform.Origin;
 			Vector3 worldPos = GetMouseXZPlanePosition();
 
 			// determine the player's direction of movement
@@ -39,13 +39,13 @@ public partial class Main : Node3D {
 
 			// rotate the player to face its direction of movement
 			if (direction.Length() > 0.001f)
-				player.Rotation = new Vector3(0f, Mathf.Atan2(direction.X, direction.Z), 0);
+				Player.Rotation = new Vector3(0f, Mathf.Atan2(direction.X, direction.Z), 0);
 
 			Vector3 targetPos = playerPos + direction;
 
 			// animate the player sliding into its new position
-			tween = GetTree().CreateTween();
-			tween.TweenProperty(player, "global_transform:origin", targetPos, 0.5f)
+			_tween = GetTree().CreateTween();
+			_tween.TweenProperty(Player, "global_transform:origin", targetPos, 0.5f)
 				.SetTrans(Tween.TransitionType.Sine)
 				.SetEase(Tween.EaseType.InOut);
 		}
@@ -57,8 +57,8 @@ public partial class Main : Node3D {
 	/// <returns>The 3D world position under the mouse cursor in the XZ plane.</returns>
 	public Vector3 GetMouseXZPlanePosition() {
 		Vector2 mousePos = GetViewport().GetMousePosition();
-		Vector3 rayStart = camera3D.ProjectRayOrigin(mousePos);
-		Vector3 rayDirection = camera3D.ProjectRayNormal(mousePos);
+		Vector3 rayStart = Camera.ProjectRayOrigin(mousePos);
+		Vector3 rayDirection = Camera.ProjectRayNormal(mousePos);
 
 		float t = -rayStart.Y / rayDirection.Y;
 		return rayStart + rayDirection * t;

@@ -7,10 +7,10 @@
 [sub_resource type="PlaneMesh" id="PlaneMesh_xwkvk"]
 size = Vector2(10, 8)
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("player", "camera3D")]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("Player", "Camera")]
 script = ExtResource("1_6almw")
-player = NodePath("Player")
-camera3D = NodePath("CameraRig/Camera3D")
+Player = NodePath("Player")
+Camera = NodePath("CameraRig/Camera3D")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.819152, -0.32899, 0.469846, 0, 0.819152, 0.573576, -0.573576, -0.469846, 0.67101, 0, 20, 20)
