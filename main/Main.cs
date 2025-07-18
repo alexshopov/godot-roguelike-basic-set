@@ -10,7 +10,7 @@ public partial class Main : Node3D
 	[Export]
 	public Camera3D Camera { get; set; }
 	[Export]
-	public float MoveSpeed { get; set; } = 2f;
+	public float MoveSpeed { get; set; } = 1f;
 	
 	private Tween _tween;
 
@@ -50,7 +50,7 @@ public partial class Main : Node3D
 
 			// animate the player sliding into its new position
 			_tween = GetTree().CreateTween();
-			_tween.TweenProperty(Player, "global_position", targetPos, 1 / MoveSpeed)
+			_tween.TweenProperty(Player, "global_position", targetPos, MoveSpeed)
 				.SetTrans(Tween.TransitionType.Sine)
 				.SetEase(Tween.EaseType.InOut);
 		}

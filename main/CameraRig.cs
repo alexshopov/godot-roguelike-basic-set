@@ -13,13 +13,16 @@ public partial class CameraRig : Node3D
 
 	private Camera3D _camera;
 
+	private const float CAMERA_SIZE_MIN = 3f;
+	private const float CAMERA_SIZE_MAX = 30f;
+
 	/// <summary>
 	/// Called when the CameraRig enters the scene tree. Initializes the camera reference.
 	/// </summary>
-    public override void _Ready()
+	public override void _Ready()
 	{
 		_camera = GetNode<Camera3D>("Camera3D");
-    }
+	}
 
 	/// <summary>
 	/// Called once per frame. Handle camera zoom in response to WASD input
@@ -54,7 +57,7 @@ public partial class CameraRig : Node3D
 	{
 		if (Input.IsActionJustPressed("camera_zoom_out"))
 		{
-			if (_camera.Size < 30f)
+			if (_camera.Size < CAMERA_SIZE_MAX)
 			{
 				_camera.Size += 1f;
 				CameraPanSpeed = _camera.Size / 100f;
@@ -62,7 +65,7 @@ public partial class CameraRig : Node3D
 		}
 		else if (Input.IsActionJustPressed("camera_zoom_in"))
 		{
-			if (_camera.Size > 3f)
+			if (_camera.Size > CAMERA_SIZE_MIN)
 			{
 				_camera.Size -= 1f;
 				CameraPanSpeed = _camera.Size / 100f;
