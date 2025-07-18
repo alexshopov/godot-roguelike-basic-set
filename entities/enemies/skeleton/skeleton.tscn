@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyn40wa6fked5"]
+
+[ext_resource type="PackedScene" uid="uid://uukc2tsxg4jt" path="res://assets/models/enemies/skeleton_model.glb" id="1_7jsv5"]
+[ext_resource type="Script" uid="uid://0p0gbfavna23" path="res://entities/Entity.cs" id="1_q87sb"]
+
+[node name="Skeleton" type="Node3D"]
+script = ExtResource("1_q87sb")
+
+[node name="skeleton_model" parent="." instance=ExtResource("1_7jsv5")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)

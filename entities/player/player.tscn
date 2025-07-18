@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnv0cbox6oxda"]
+[gd_scene load_steps=3 format=3 uid="uid://dnv0cbox6oxda"]
 
+[ext_resource type="Script" uid="uid://0p0gbfavna23" path="res://entities/Entity.cs" id="1_abrql"]
 [ext_resource type="PackedScene" uid="uid://cpqqct7rq5re4" path="res://assets/models/player/player_model.glb" id="1_oul6g"]
 
 [node name="Player" type="Node3D"]
+script = ExtResource("1_abrql")
 
 [node name="player_model" parent="." instance=ExtResource("1_oul6g")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://xengds02uxf0"]
+[gd_scene load_steps=6 format=3 uid="uid://xengds02uxf0"]
 
 [ext_resource type="Script" uid="uid://cfhnbe6aq7dx5" path="res://main/Main.cs" id="1_6almw"]
-[ext_resource type="PackedScene" uid="uid://dnv0cbox6oxda" path="res://player/player.tscn" id="2_pjrb6"]
+[ext_resource type="PackedScene" uid="uid://dnv0cbox6oxda" path="res://entities/player/player.tscn" id="2_pjrb6"]
+[ext_resource type="PackedScene" uid="uid://dyn40wa6fked5" path="res://entities/enemies/skeleton/skeleton.tscn" id="3_c651c"]
 [ext_resource type="Script" uid="uid://d0pfo46yo8mtl" path="res://main/CameraRig.cs" id="3_xwkvk"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xwkvk"]
@@ -17,6 +18,9 @@ transform = Transform3D(0.819152, -0.32899, 0.469846, 0, 0.819152, 0.573576, -0.
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_pjrb6")]
+
+[node name="Skeleton" parent="." instance=ExtResource("3_c651c")]
+transform = Transform3D(-0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, -0.984808, -3, 0, -1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_xwkvk")
