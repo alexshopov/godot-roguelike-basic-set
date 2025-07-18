@@ -46,7 +46,7 @@ public partial class Main : Node3D
 			Vector3 targetPos = playerPos + direction;
 
 			// rotate the player to face its direction of movement
-			Player.Rotation = new Vector3(0f, Mathf.Atan2(direction.X, direction.Z), 0);
+			Player.LookAt(targetPos, Vector3.Up);
 
 			// animate the player sliding into its new position
 			_tween = GetTree().CreateTween();
