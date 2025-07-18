@@ -41,6 +41,8 @@ public partial class Main : Node3D
 
 			// normalize the direction so player only moves 1 unit
 			direction = direction.Normalized();
+
+			// calculate the target position we want the player to move to
 			Vector3 targetPos = playerPos + direction;
 
 			// rotate the player to face its direction of movement
