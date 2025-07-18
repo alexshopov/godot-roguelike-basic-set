@@ -3,12 +3,15 @@ using Godot;
 /// <summary>
 /// Main class that executes when the game launches
 /// </summary>
-public partial class Main : Node3D {
+public partial class Main : Node3D
+{
 	[Export]
-	public Node3D Player;
+	public Node3D Player { get; set; }
 	[Export]
-	public Camera3D Camera;
-
+	public Camera3D Camera { get; set; }
+	[Export]
+	public float MoveSpeed { get; set; } = 2f;
+	
 	private Tween _tween;
 
 	public override void _Ready() { }
@@ -17,13 +20,15 @@ public partial class Main : Node3D {
 	/// Called once per frame. Handle player click-to-move logic
 	/// </summary>
 	/// <param name="delta">Time elapsed since the previous frame.</param>
-	public override void _Process(double delta) {
-		if (Input.IsActionJustPressed("left_click")) {
+	public override void _Process(double delta)
+	{
+		if (Input.IsActionJustPressed("left_click"))
+		{
 			// prevent starting a new tween if one is already running
 			if (_tween != null && _tween.IsRunning())
 				return;
 
-			Vector3 playerPos = Player.GlobalTransform.Origin;
+			Vector3 playerPos = Player.GlobalPosition;
 			Vector3 worldPos = GetMouseXZPlanePosition();
 
 			// determine the player's direction of movement
@@ -37,15 +42,15 @@ public partial class Main : Node3D {
 			// normalize the direction so player only moves 1 unit
 			direction = direction.Normalized();
 
-			// rotate the player to face its direction of movement
-			if (direction.Length() > 0.001f)
-				Player.Rotation = new Vector3(0f, Mathf.Atan2(direction.X, direction.Z), 0);
-
+			// calculate the target position we want the player to move to
 			Vector3 targetPos = playerPos + direction;
+
+			// rotate the player to face its direction of movement
+			Player.LookAt(targetPos, Vector3.Up);
 
 			// animate the player sliding into its new position
 			_tween = GetTree().CreateTween();
-			_tween.TweenProperty(Player, "global_transform:origin", targetPos, 0.5f)
+			_tween.TweenProperty(Player, "global_position", targetPos, 1 / MoveSpeed)
 				.SetTrans(Tween.TransitionType.Sine)
 				.SetEase(Tween.EaseType.InOut);
 		}
@@ -55,7 +60,8 @@ public partial class Main : Node3D {
 	/// Casts a ray from the mouse cursor and returns the intersection point with the XZ plane
 	/// </summary>
 	/// <returns>The 3D world position under the mouse cursor in the XZ plane.</returns>
-	public Vector3 GetMouseXZPlanePosition() {
+	public Vector3 GetMouseXZPlanePosition()
+	{
 		Vector2 mousePos = GetViewport().GetMousePosition();
 		Vector3 rayStart = Camera.ProjectRayOrigin(mousePos);
 		Vector3 rayDirection = Camera.ProjectRayNormal(mousePos);
