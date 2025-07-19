@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg2vsxgew7qry"]
+
+[ext_resource type="Script" uid="uid://bpw0obcfui6tm" path="res://entities/EntityManager.cs" id="1_4uxwg"]
+[ext_resource type="PackedScene" uid="uid://dnv0cbox6oxda" path="res://entities/player/player.tscn" id="2_d7l36"]
+[ext_resource type="PackedScene" uid="uid://dyn40wa6fked5" path="res://entities/enemies/skeleton/skeleton.tscn" id="3_x1lej"]
+
+[node name="EntityManager" type="Node"]
+script = ExtResource("1_4uxwg")
+PlayerScene = ExtResource("2_d7l36")
+SkeletonScene = ExtResource("3_x1lej")

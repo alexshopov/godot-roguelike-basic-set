@@ -1,29 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://xengds02uxf0"]
+[gd_scene load_steps=5 format=3 uid="uid://xengds02uxf0"]
 
 [ext_resource type="Script" uid="uid://cfhnbe6aq7dx5" path="res://main/Main.cs" id="1_6almw"]
-[ext_resource type="PackedScene" uid="uid://dnv0cbox6oxda" path="res://entities/player/player.tscn" id="2_pjrb6"]
-[ext_resource type="PackedScene" uid="uid://dyn40wa6fked5" path="res://entities/enemies/skeleton/skeleton.tscn" id="3_c651c"]
+[ext_resource type="PackedScene" uid="uid://bg2vsxgew7qry" path="res://entities/entity_manager.tscn" id="2_xwkvk"]
 [ext_resource type="Script" uid="uid://d0pfo46yo8mtl" path="res://main/CameraRig.cs" id="3_xwkvk"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xwkvk"]
 size = Vector2(10, 8)
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("Player", "Camera")]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("Camera")]
 script = ExtResource("1_6almw")
-Player = NodePath("Player")
 Camera = NodePath("CameraRig/Camera3D")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.819152, -0.32899, 0.469846, 0, 0.819152, 0.573576, -0.573576, -0.469846, 0.67101, 0, 20, 20)
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("2_pjrb6")]
-
-[node name="Skeleton" parent="." instance=ExtResource("3_c651c")]
-transform = Transform3D(-0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, -0.984808, -3, 0, -1)
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_xwkvk")
+
+[node name="EntityManager" parent="." instance=ExtResource("2_xwkvk")]
 
 [node name="CameraRig" type="Node3D" parent="."]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
@@ -33,3 +28,6 @@ script = ExtResource("3_xwkvk")
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 75, 75)
 projection = 1
 size = 10.0
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
