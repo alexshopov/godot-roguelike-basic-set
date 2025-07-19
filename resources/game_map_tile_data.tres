@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="GameMapTile" load_steps=2 format=3 uid="uid://spbxi3plqbyl"]
+
+[ext_resource type="Script" uid="uid://vbexkbueu1p8" path="res://game_map/GameMapTile.cs" id="1_6rnyl"]
+
+[resource]
+script = ExtResource("1_6rnyl")
+Walkable = false
+metadata/_custom_type_script = "uid://vbexkbueu1p8"

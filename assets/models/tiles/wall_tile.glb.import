@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b0l5u7bgtykkv"
-path="res://.godot/imported/floor_tile.glb-212f9ec18fe938ee1cf91cca7979ae59.scn"
+uid="uid://dtpy8qye0m6p0"
+path="res://.godot/imported/wall_tile.glb-fe2f49424163ed6975830f4476d6ef70.scn"
 
 [deps]
 
-source_file="res://assets/models/tiles/floor_tile.glb"
-dest_files=["res://.godot/imported/floor_tile.glb-212f9ec18fe938ee1cf91cca7979ae59.scn"]
+source_file="res://assets/models/tiles/wall_tile.glb"
+dest_files=["res://.godot/imported/wall_tile.glb-fe2f49424163ed6975830f4476d6ef70.scn"]
 
 [params]
 
@@ -34,9 +34,11 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Floor": {
+"PATH:Wall": {
 "generate/physics": true,
-"physics/shape_type": 1
+"physics/layer": 2,
+"physics/mask": 0,
+"physics/shape_type": 2
 }
 }
 }

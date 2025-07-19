@@ -2,23 +2,19 @@
 
 [ext_resource type="Script" uid="uid://cfhnbe6aq7dx5" path="res://main/Main.cs" id="1_6almw"]
 [ext_resource type="PackedScene" uid="uid://bg2vsxgew7qry" path="res://entities/entity_manager.tscn" id="2_xwkvk"]
+[ext_resource type="PackedScene" uid="uid://dv74r3qjkiot4" path="res://game_map/game_map.tscn" id="3_c651c"]
 [ext_resource type="Script" uid="uid://d0pfo46yo8mtl" path="res://main/CameraRig.cs" id="3_xwkvk"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_xwkvk"]
-size = Vector2(10, 8)
-
-[node name="Main" type="Node3D" node_paths=PackedStringArray("Camera")]
+[node name="Main" type="Node3D"]
 script = ExtResource("1_6almw")
-Camera = NodePath("CameraRig/Camera3D")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.819152, -0.32899, 0.469846, 0, 0.819152, 0.573576, -0.573576, -0.469846, 0.67101, 0, 20, 20)
 shadow_enabled = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_xwkvk")
-
 [node name="EntityManager" parent="." instance=ExtResource("2_xwkvk")]
+
+[node name="GameMap" parent="." instance=ExtResource("3_c651c")]
 
 [node name="CameraRig" type="Node3D" parent="."]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv74r3qjkiot4"]
+
+[ext_resource type="MeshLibrary" uid="uid://dvf720gkrfe1x" path="res://resources/map_tiles.tres" id="1_2si47"]
+[ext_resource type="Script" uid="uid://cw6rvajn7ij75" path="res://game_map/GameMap.cs" id="1_085oq"]
+
+[node name="GameMap" type="Node3D"]
+script = ExtResource("1_085oq")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_2si47")
