@@ -9,6 +9,8 @@ A finished version of the game can be played at https://ecodevguy.itch.io/the-go
 
 [Part 0 - Project Setup and Assets](https://github.com/alexshopov/godot-roguelike-basic-set/tree/part-0)
 
+[Part 1 - Creating and Moving the Player](https://github.com/alexshopov/godot-roguelike-basic-set/tree/part-1)
+
 ## Credits
 
 [Tiny Dungeon](https://www.kenney.nl/assets/tiny-dungeon) asset pack by Kenney
