@@ -5,3 +5,12 @@ tutorial series: https://alexshopov.com/godot-roguelike-basic-set/
 
 A finished version of the game can be played at https://ecodevguy.itch.io/the-godot-roguelike-basic-set
 
+## Contents
+
+[Part 0 - Project Setup and Assets](https://github.com/alexshopov/godot-roguelike-basic-set/tree/part-0)
+
+## Credits
+
+[Tiny Dungeon](https://www.kenney.nl/assets/tiny-dungeon) asset pack by Kenney
+
+[Pixel font](https://www.kenney.nl/assets/kenney-fonts) by Kenney Assets
