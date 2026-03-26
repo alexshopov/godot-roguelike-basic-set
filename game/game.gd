@@ -1,8 +1,7 @@
 class_name Game
 extends Node
 
-const GAME_WIDTH := 40
-const GAME_HEIGHT := 22
+const GAME_SIZE := Vector2i(40, 22)
 const TILE_SIZE := Vector2i(16, 16)
 
 @onready var event_handler : EventHandler = $EventHandler
@@ -12,7 +11,7 @@ const TILE_SIZE := Vector2i(16, 16)
 func _ready() -> void:
 	print("Welcome to the dungeon.")
 
-	var origin := Vector2i(GAME_WIDTH / 2, GAME_HEIGHT / 2)
+	var origin := GAME_SIZE / 2
 	player.global_position = tile_to_global(origin)
 
 
