@@ -7,7 +7,7 @@ A finished version of the game can be played at https://ecodevguy.itch.io/the-go
 
 ## Contents
 
-Part 0 - Project Setup and Assets
+[Part 0 - Project Setup and Assets](https://github.com/alexshopov/godot-roguelike-basic-set/tree/part-0)
 
 ## Credits
 
