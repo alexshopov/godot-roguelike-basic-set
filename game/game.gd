@@ -12,8 +12,8 @@ func _ready() -> void:
 	print("Welcome to the dungeon.")
 
 	@warning_ignore("integer_division")
-	var origin := GAME_SIZE / 2
-	player.global_position = origin * TILE_SIZE
+	var center := GAME_SIZE / 2
+	player.global_position = center * TILE_SIZE
 
 
 func _input(event: InputEvent) -> void:
