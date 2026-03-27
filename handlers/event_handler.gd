@@ -21,6 +21,11 @@ func _handle_keyboard_event(event: InputEventKey) -> Action:
 		if event.is_action_pressed("move_%s" % direction):
 			return MovementAction.new(DIRECTIONS.get(direction))
 
+	if event.is_action_pressed("save_game"):
+		return SaveGameAction.new()
+	if event.is_action_pressed("load_game"):
+		return LoadGameAction.new()
+
 	if event.is_action_pressed("ui_cancel"):
 		return EscapeAction.new()
 

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://tkdb2hk1yqo4" path="res://game/game.gd" id="1_l1rk1"]
 [ext_resource type="Script" uid="uid://csfd6brp0k5ri" path="res://handlers/event_handler.gd" id="2_h7iqs"]
 [ext_resource type="Texture2D" uid="uid://cprmkj75qtne5" path="res://assets/spritesheets/units_spritesheet.png" id="2_vasa2"]
+[ext_resource type="Script" uid="uid://djjfc31vlvwtt" path="res://handlers/save_load_handler.gd" id="3_4fuuu"]
 
 [node name="Game" type="Node" unique_id=720546301]
 script = ExtResource("1_l1rk1")
@@ -10,6 +11,11 @@ script = ExtResource("1_l1rk1")
 [node name="EventHandler" type="Node" parent="." unique_id=1987312800]
 script = ExtResource("2_h7iqs")
 metadata/_custom_type_script = "uid://csfd6brp0k5ri"
+
+[node name="SaveLoadHandler" type="Node" parent="." unique_id=1065483996 node_paths=PackedStringArray("player")]
+script = ExtResource("3_4fuuu")
+player = NodePath("../Player")
+metadata/_custom_type_script = "uid://djjfc31vlvwtt"
 
 [node name="Player" type="Sprite2D" parent="." unique_id=1464266138]
 texture = ExtResource("2_vasa2")
