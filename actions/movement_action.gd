@@ -9,4 +9,4 @@ func _init(new_offset: Vector2i) -> void:
 
 
 func execute(game: Game) -> void:
-	game.player.global_position += Vector2(offset * game.TILE_SIZE)
+	game.entity_manager.player.global_position += Vector2(offset * Constants.TILE_SIZE)

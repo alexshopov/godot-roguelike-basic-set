@@ -18,6 +18,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 SaveLoadManager="*uid://bsfrpbpr1nqeh"
+Constants="*uid://b4oj0qccg8k22"
 
 [debug]
 

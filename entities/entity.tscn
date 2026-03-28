@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cn71o44rgdu87"]
+
+[ext_resource type="Texture2D" uid="uid://cprmkj75qtne5" path="res://assets/spritesheets/units_spritesheet.png" id="1_jm4vq"]
+[ext_resource type="Script" uid="uid://ycukc6rfh8lb" path="res://entities/entity.gd" id="2_ep4xq"]
+[ext_resource type="Resource" uid="uid://dapmhkgougerr" path="res://data/entities/player.tres" id="3_w5oec"]
+
+[node name="Entity" type="Sprite2D" unique_id=1413797686]
+texture = ExtResource("1_jm4vq")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+script = ExtResource("2_ep4xq")
+entity_resource = ExtResource("3_w5oec")

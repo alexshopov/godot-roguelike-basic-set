@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EntityResource" format=3 uid="uid://coquqdmgpx3c7"]
+
+[ext_resource type="Script" uid="uid://d1no7upi5odju" path="res://entities/entity_resource.gd" id="1_46gdp"]
+
+[resource]
+script = ExtResource("1_46gdp")
+atlas_coord = Vector2(1, 0)
+metadata/_custom_type_script = "uid://d1no7upi5odju"
