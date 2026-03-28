@@ -7,9 +7,11 @@ A finished version of the game can be played at https://ecodevguy.itch.io/the-go
 
 ## Contents
 
-[Part 0 - Project Setup and Assets](https://github.com/alexshopov/godot-roguelike-basic-set/tree/part-0)
+[Part 0 - Project Setup and Assets](https://alexshopov.com/2026/03/25/the-godot-roguelike-basic-set-part-0-project-setup/)
 
-[Part 1 - Creating and Moving the Player](https://github.com/alexshopov/godot-roguelike-basic-set/tree/part-1)
+[Part 1 - Creating and Moving the Player](https://alexshopov.com/2026/03/27/part-1-creating-and-moving-the-player/)
+
+[Part 2 - Saving and Loading](https://alexshopov.com/2026/03/27/part-2-saving-and-loading/)
 
 ## Credits
 
