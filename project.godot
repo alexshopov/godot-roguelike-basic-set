@@ -15,6 +15,10 @@ run/main_scene="uid://fon1gxnhug66"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://assets/icon.svg"
 
+[autoload]
+
+SaveLoadManager="*uid://bsfrpbpr1nqeh"
+
 [debug]
 
 gdscript/warnings/untyped_declaration=2

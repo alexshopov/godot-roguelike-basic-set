@@ -6,7 +6,6 @@ const TILE_SIZE := Vector2i(16, 16)
 
 @onready var event_handler : EventHandler = $EventHandler
 @onready var player : Sprite2D = $Player
-@onready var save_load_handler : SaveLoadHandler = $SaveLoadHandler
 
 
 func _ready() -> void:
