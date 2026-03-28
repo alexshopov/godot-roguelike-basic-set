@@ -11,6 +11,8 @@ A finished version of the game can be played at https://ecodevguy.itch.io/the-go
 
 [Part 1 - Creating and Moving the Player](https://alexshopov.com/2026/03/27/part-1-creating-and-moving-the-player/)
 
+[Part 2 - Saving and Loading](https://alexshopov.com/2026/03/27/part-2-saving-and-loading/)
+
 ## Credits
 
 [Tiny Dungeon](https://www.kenney.nl/assets/tiny-dungeon) asset pack by Kenney
