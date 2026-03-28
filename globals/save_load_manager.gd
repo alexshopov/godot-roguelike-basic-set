@@ -6,7 +6,7 @@ const PLAYER_POSITION := "player_position"
 
 func save(game: Game) -> void:
 	var save_data := {
-		PLAYER_POSITION: vec2_to_str(game.player.global_position)
+		PLAYER_POSITION: var_to_str(game.player.global_position)
 	}
 
 	var json_str := JSON.stringify(save_data)
@@ -34,11 +34,11 @@ func load(game: Game) -> void:
 		print("Error parsing player_position.")
 		return
 
-	game.player.global_position = str_to_vec2(player_position)
+	game.player.global_position = str_to_var(player_position)
 	print("Game loaded.")
 
 
-func _open_file(flags: int) -> FileAccess:
+func _open_file(flags: FileAccess.ModeFlags) -> FileAccess:
 	var file := FileAccess.open(SAVE_FILENAME, flags)
 	if not file:
 		var err := FileAccess.get_open_error()
@@ -46,17 +46,3 @@ func _open_file(flags: int) -> FileAccess:
 		return null
 
 	return file
-
-
-func vec2_to_str(v: Vector2) -> String:
-	return "%d,%d" % [v.x, v.y]
-
-
-func str_to_vec2(s: String) -> Vector2:
-	if not s:
-		print("Error parsing saved data.")
-		return Vector2(-1, -1)
-
-	var parts := s.split(",")
-	return Vector2(int(parts[0]), int(parts[1]))
-
