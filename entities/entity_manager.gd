@@ -7,22 +7,17 @@ const ENTITY_RESOURCES : Dictionary[String, EntityResource] = {
 	"npc": preload("res://data/entities/npc.tres")
 }
 
-@export var map : Map
-
 var player : Entity
 var npc : Entity
 
 
-func init() -> void:
-	@warning_ignore("integer_division")
-	var center: Vector2i = map.map_size / 2
-
+func init(origin: Vector2i) -> void:
 	player = ENTITY_SCENE.instantiate()
 	player.entity_resource = ENTITY_RESOURCES.get("player")
 	add_child(player)
-	player.global_position = center * Constants.TILE_SIZE
+	player.global_position = origin * Constants.TILE_SIZE
 
 	npc = ENTITY_SCENE.instantiate()
 	npc.entity_resource = ENTITY_RESOURCES.get("npc")
 	add_child(npc)
-	npc.global_position = (center + Vector2i(5, 0)) * Constants.TILE_SIZE
+	npc.global_position = (origin + Vector2i(5, 0)) * Constants.TILE_SIZE

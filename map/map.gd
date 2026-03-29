@@ -7,19 +7,21 @@ const MAP_TILE_RESOURCES := {
 	"wall": preload("res://data/map_tiles/wall.tres")
 }
 
-var map_size : Vector2i
+var map_size : Vector2
 var tiles : Dictionary[Vector2i, MapTileResource] = {}
 
 @onready var source_id := tile_set.get_source_id(0)
 
 
-func init(new_map_size: Vector2i) -> void:
+func init(new_map_size: Vector2) -> void:
 	map_size = new_map_size
+
+	var tile : Vector2
+	var tile_resource: MapTileResource
 
 	for x: int in range(map_size.x):
 		for y: int in range(map_size.y):
-			var tile := Vector2i(x, y)
-			var tile_resource: MapTileResource
+			tile = Vector2(x, y)
 
 			if randf() < 0.85:
 				tile_resource = MAP_TILE_RESOURCES.get("floor_1")
@@ -30,14 +32,10 @@ func init(new_map_size: Vector2i) -> void:
 			set_cell(tile, source_id, tile_resource.atlas_coord)
 
 	for x: int in range(10, 15):
-		var tile := Vector2i(x, 8)
-		var tile_resource: MapTileResource = MAP_TILE_RESOURCES.get("wall")
+		tile = Vector2i(x, 8)
+		tile_resource = MAP_TILE_RESOURCES.get("wall")
 		tiles.set(tile, tile_resource)
 		set_cell(tile, source_id, tile_resource.atlas_coord)
-
-
-func tile_to_global(tile: Vector2i) -> Vector2:
-	return map_to_local(tile) - Constants.HALF_TILE_SIZE_VECTOR
 
 
 func global_to_tile(global: Vector2) -> Vector2i:

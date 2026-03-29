@@ -14,4 +14,4 @@ func execute(game: Game) -> void:
 
 	var new_tile:= map.global_to_tile(player.global_position) + offset
 	if map.is_in_bounds(new_tile) and map.is_walkable(new_tile):
-		game.entity_manager.player.global_position = map.tile_to_global(new_tile)
+		game.entity_manager.player.move(offset)

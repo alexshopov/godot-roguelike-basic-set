@@ -1,7 +1,14 @@
 [gd_resource type="Resource" script_class="EntityResource" format=3 uid="uid://dapmhkgougerr"]
 
-[ext_resource type="Script" uid="uid://d1no7upi5odju" path="res://entities/entity_resource.gd" id="1_qr8yv"]
+[ext_resource type="Script" uid="uid://d1no7upi5odju" path="res://entities/entity_resource.gd" id="1_25ucu"]
+[ext_resource type="Texture2D" uid="uid://cprmkj75qtne5" path="res://assets/spritesheets/units_spritesheet.png" id="2_yfsko"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25ucu"]
+atlas = ExtResource("2_yfsko")
+region = Rect2(0, 0, 16, 16)
 
 [resource]
-script = ExtResource("1_qr8yv")
+resource_local_to_scene = true
+script = ExtResource("1_25ucu")
+atlas_texture = SubResource("AtlasTexture_25ucu")
 metadata/_custom_type_script = "uid://d1no7upi5odju"

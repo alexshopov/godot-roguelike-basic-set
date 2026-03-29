@@ -12,7 +12,9 @@ func _ready() -> void:
 	print("Welcome to the dungeon.")
 
 	map.init(GAME_SIZE)
-	entity_manager.init()
+	@warning_ignore("integer_division")
+	var center := GAME_SIZE / 2
+	entity_manager.init(center)
 
 
 func _input(event: InputEvent) -> void:

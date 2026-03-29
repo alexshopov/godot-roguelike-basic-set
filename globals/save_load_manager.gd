@@ -1,12 +1,12 @@
 extends Node
 
 const SAVE_FILENAME := "user://savegame.json"
-const PLAYER_POSITION := "player_position"
+const PLAYER_DATA := "player"
 
 
 func save(game: Game) -> void:
 	var save_data := {
-		PLAYER_POSITION: var_to_str(game.player.global_position)
+		PLAYER_DATA: game.entity_manager.player.save()
 	}
 
 	var json_str := JSON.stringify(save_data)
@@ -29,12 +29,8 @@ func load(game: Game) -> void:
 		print("Error parsing saved data.")
 		return
 
-	var player_position: String = save_data.get(PLAYER_POSITION)
-	if not player_position:
-		print("Error parsing player_position.")
-		return
 
-	game.player.global_position = str_to_var(player_position)
+	game.entity_manager.player.load(save_data.get(PLAYER_DATA))
 	print("Game loaded.")
 
 
