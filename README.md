@@ -13,6 +13,8 @@ A finished version of the game can be played at https://ecodevguy.itch.io/the-go
 
 [Part 2 - Saving and Loading](https://alexshopov.com/2026/03/28/part-2-saving-and-loading/)
 
+[Part 3 - Entities, Resources, and the Map](https://alexshopov.com/2026/03/29/the-godot-roguelike-basic-set-part-3-entities-resources-and-the-map/)
+
 ## Credits
 
 [Tiny Dungeon](https://www.kenney.nl/assets/tiny-dungeon) asset pack by Kenney
