@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MapTileResource" format=3 uid="uid://ceu703k62ppnn"]
+
+[ext_resource type="Script" uid="uid://w1tp6hkyu8s5" path="res://map/map_tile_resource.gd" id="1_3doi8"]
+
+[resource]
+script = ExtResource("1_3doi8")
+atlas_coord = Vector2i(0, 1)
+metadata/_custom_type_script = "uid://w1tp6hkyu8s5"

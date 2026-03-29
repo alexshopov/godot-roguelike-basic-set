@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EntityResource" format=3 uid="uid://coquqdmgpx3c7"]
+
+[ext_resource type="Script" uid="uid://d1no7upi5odju" path="res://entities/entity_resource.gd" id="1_46gdp"]
+[ext_resource type="Texture2D" uid="uid://cprmkj75qtne5" path="res://assets/spritesheets/units_spritesheet.png" id="1_q26dc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25ucu"]
+atlas = ExtResource("1_q26dc")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_46gdp")
+atlas_texture = SubResource("AtlasTexture_25ucu")
+metadata/_custom_type_script = "uid://d1no7upi5odju"

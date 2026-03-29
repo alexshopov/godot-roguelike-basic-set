@@ -9,4 +9,9 @@ func _init(new_offset: Vector2i) -> void:
 
 
 func execute(game: Game) -> void:
-	game.player.global_position += Vector2(offset * game.TILE_SIZE)
+	var map := game.map
+	var player := game.entity_manager.player
+
+	var new_tile:= map.global_to_tile(player.global_position) + offset
+	if map.is_in_bounds(new_tile) and map.is_walkable(new_tile):
+		game.entity_manager.player.move(offset)

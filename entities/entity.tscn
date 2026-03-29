@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cn71o44rgdu87"]
+
+[ext_resource type="Script" uid="uid://ycukc6rfh8lb" path="res://entities/entity.gd" id="2_ep4xq"]
+[ext_resource type="Resource" uid="uid://dapmhkgougerr" path="res://data/entities/player.tres" id="3_w5oec"]
+
+[node name="Entity" type="Sprite2D" unique_id=1413797686]
+z_index = 1
+centered = false
+script = ExtResource("2_ep4xq")
+entity_resource = ExtResource("3_w5oec")
