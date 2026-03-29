@@ -46,4 +46,3 @@ func _load_resource(resource_path: String = "") -> void:
 
 	texture = entity_resource.atlas_texture
 	z_index = entity_resource.draw_layer
-

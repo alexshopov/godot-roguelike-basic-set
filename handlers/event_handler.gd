@@ -2,10 +2,10 @@ class_name EventHandler
 extends Node
 
 const DIRECTIONS := {
-	"up": Vector2.UP,
-	"left": Vector2.LEFT,
-	"down": Vector2.DOWN,
-	"right": Vector2.RIGHT
+	"up": Vector2i.UP,
+	"left": Vector2i.LEFT,
+	"down": Vector2i.DOWN,
+	"right": Vector2i.RIGHT
 }
 
 
