@@ -1,4 +1,3 @@
-@tool
 class_name Entity
 extends Sprite2D
 

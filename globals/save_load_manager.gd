@@ -2,11 +2,13 @@ extends Node
 
 const SAVE_FILENAME := "user://savegame.json"
 const PLAYER_DATA := "player"
+const MAP_DATA := "map"
 
 
 func save(game: Game) -> void:
 	var save_data := {
-		PLAYER_DATA: game.entity_manager.player.save()
+		PLAYER_DATA: game.entity_manager.save(),
+		MAP_DATA: game.map.save()
 	}
 
 	var json_str := JSON.stringify(save_data)
@@ -29,8 +31,8 @@ func load(game: Game) -> void:
 		print("Error parsing saved data.")
 		return
 
-
-	game.entity_manager.player.load(save_data.get(PLAYER_DATA))
+	game.map.load(save_data.get(MAP_DATA))
+	game.entity_manager.load(save_data.get(PLAYER_DATA))
 	print("Game loaded.")
 
 

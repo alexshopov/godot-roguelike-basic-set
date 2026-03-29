@@ -3,4 +3,4 @@ extends Resource
 
 @export var walkable : bool
 @export var transparent : bool
-@export var atlas_coord : Vector2
+@export var atlas_coord : Vector2i

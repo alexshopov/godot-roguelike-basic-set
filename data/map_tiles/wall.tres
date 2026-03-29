@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_3doi8")
-atlas_coord = Vector2(0, 1)
+atlas_coord = Vector2i(0, 1)
 metadata/_custom_type_script = "uid://w1tp6hkyu8s5"

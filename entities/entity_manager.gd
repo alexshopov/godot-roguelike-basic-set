@@ -12,12 +12,33 @@ var npc : Entity
 
 
 func init(origin: Vector2i) -> void:
-	player = ENTITY_SCENE.instantiate()
-	player.entity_resource = ENTITY_RESOURCES.get("player")
-	add_child(player)
+	player = _spawn_entity(ENTITY_RESOURCES.get("player"))
 	player.global_position = origin * Constants.TILE_SIZE
 
-	npc = ENTITY_SCENE.instantiate()
-	npc.entity_resource = ENTITY_RESOURCES.get("npc")
-	add_child(npc)
+	npc = _spawn_entity(ENTITY_RESOURCES.get("npc"))
 	npc.global_position = (origin + Vector2i(5, 0)) * Constants.TILE_SIZE
+
+
+func _spawn_entity(entity_resource: EntityResource = null) -> Entity:
+	var new_entity := ENTITY_SCENE.instantiate()
+
+	if entity_resource:
+		new_entity.entity_resource = entity_resource
+
+	add_child(new_entity)
+
+	return new_entity
+
+
+func save() -> Dictionary:
+	var save_data: Dictionary = {}
+
+	save_data.set("player", player.save())
+	save_data.set("npc", npc.save())
+
+	return save_data
+
+
+func load(save_data: Dictionary) -> void:
+	player.load(save_data.get("player"))
+	npc.load(save_data.get("npc"))
