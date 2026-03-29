@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://csfd6brp0k5ri" path="res://handlers/event_handler.gd" id="2_h7iqs"]
 [ext_resource type="Texture2D" uid="uid://cprmkj75qtne5" path="res://assets/spritesheets/units_spritesheet.png" id="2_vasa2"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7iqs"]
+atlas = ExtResource("2_vasa2")
+region = Rect2(0, 0, 16, 16)
+
 [node name="Game" type="Node" unique_id=720546301]
 script = ExtResource("1_l1rk1")
 
@@ -12,7 +16,7 @@ script = ExtResource("2_h7iqs")
 metadata/_custom_type_script = "uid://csfd6brp0k5ri"
 
 [node name="Player" type="Sprite2D" parent="." unique_id=1464266138]
-texture = ExtResource("2_vasa2")
+texture = SubResource("AtlasTexture_h7iqs")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
