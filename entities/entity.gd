@@ -3,6 +3,8 @@ extends Sprite2D
 
 @export var entity_resource : EntityResource
 
+var vision_radius := 8
+
 
 func _ready() -> void:
 	assert(entity_resource != null, "An entity_resource must be specified before adding the Entity to scene.")

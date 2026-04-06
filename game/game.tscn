@@ -28,6 +28,12 @@ metadata/_custom_type_script = "uid://csfd6brp0k5ri"
 script = ExtResource("3_4fuuu")
 metadata/_custom_type_script = "uid://dfd8tymo4ujr2"
 
-[node name="Map" type="TileMapLayer" parent="." unique_id=180335178]
-tile_set = SubResource("TileSet_dakft")
+[node name="Map" type="Node" parent="." unique_id=1270336926]
 script = ExtResource("5_dakft")
+
+[node name="ExploredTiles" type="TileMapLayer" parent="Map" unique_id=180335178]
+self_modulate = Color(0.18717614, 0.18717614, 0.18717614, 1)
+tile_set = SubResource("TileSet_dakft")
+
+[node name="VisibleTiles" type="TileMapLayer" parent="Map" unique_id=1539863224]
+tile_set = SubResource("TileSet_dakft")

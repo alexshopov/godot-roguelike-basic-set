@@ -21,7 +21,7 @@ func _init(map: Map) -> void:
 
 
 func generate() -> void:
-	_parent.clear_map()
+	clear()
 
 	var rooms: Array[Rect2i] = []
 	for r: int in range(_parent.max_rooms):
@@ -57,8 +57,7 @@ func clear() -> void:
 	for x: int in range(_parent.map_size.x):
 		for y: int in range(_parent.map_size.y):
 			var tile := Vector2i(x, y)
-			_parent.tiles.set(tile, MAP_TILE_RESOURCES[MapTileType.WALL])
-			_parent.set_cell(tile, _parent.source_id, MAP_TILE_RESOURCES[MapTileType.WALL].atlas_coord)
+			_parent.tiles.set(tile, MAP_TILE_RESOURCES[MapTileType.WALL].duplicate())
 
 
 func _rectanguar_room(new_bounds: Rect2i) -> Rect2i:
@@ -67,8 +66,8 @@ func _rectanguar_room(new_bounds: Rect2i) -> Rect2i:
 	bounds.position += Vector2i.ONE
 
 	var tile : Vector2
-	for x in range(bounds.position.x + 1, bounds.end.x):
-		for y in range(bounds.position.y + 1, bounds.end.y):
+	for x in range(bounds.position.x, bounds.end.x):
+		for y in range(bounds.position.y, bounds.end.y):
 			tile = Vector2i(x, y)
 			_set_floor_tile(tile)
 
@@ -91,9 +90,8 @@ func _tunnel_between(start: Vector2i, end: Vector2i) -> void:
 func _set_floor_tile(tile: Vector2i) -> void:
 	var tile_resource: MapTileResource
 	if randf() < 0.85:
-		tile_resource = MAP_TILE_RESOURCES.get(MapTileType.FLOOR_1)
+		tile_resource = MAP_TILE_RESOURCES.get(MapTileType.FLOOR_1).duplicate()
 	else:
-		tile_resource = MAP_TILE_RESOURCES.get(MapTileType.FLOOR_2)
+		tile_resource = MAP_TILE_RESOURCES.get(MapTileType.FLOOR_2).duplicate()
 
 	_parent.tiles.set(tile, tile_resource)
-	_parent.set_cell(tile, _parent.source_id, tile_resource.atlas_coord)

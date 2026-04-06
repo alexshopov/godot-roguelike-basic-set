@@ -17,6 +17,8 @@ A finished version of the game can be played at https://ecodevguy.itch.io/the-go
 
 [Part 4 - Procedural Dungeon Generation](https://alexshopov.com/2026/04/06/part-4-procedural-dungeon-generation/)
 
+[Part 5 - Field of View]()
+
 
 ## Credits
 

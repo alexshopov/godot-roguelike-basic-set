@@ -1,6 +1,8 @@
 class_name EntityManager
 extends Node
 
+signal player_updated(player: Entity)
+
 const ENTITY_SCENE : PackedScene = preload("res://entities/entity.tscn")
 const ENTITY_RESOURCES : Dictionary[String, EntityResource] = {
 	"player": preload("res://data/entities/player.tres"),
@@ -14,6 +16,7 @@ var npc : Entity
 func init(origin: Vector2i) -> void:
 	player = _spawn_entity(ENTITY_RESOURCES.get("player"))
 	player.global_position = origin * Constants.TILE_SIZE
+	player_updated.emit(player)
 
 	var camera := Camera2D.new()
 	camera.name = "camera"
@@ -45,4 +48,6 @@ func save() -> Dictionary:
 
 func load(save_data: Dictionary) -> void:
 	player.load(save_data.get("player"))
+	player_updated.emit(player)
+
 	npc.load(save_data.get("npc"))
