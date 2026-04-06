@@ -15,6 +15,10 @@ func init(origin: Vector2i) -> void:
 	player = _spawn_entity(ENTITY_RESOURCES.get("player"))
 	player.global_position = origin * Constants.TILE_SIZE
 
+	var camera := Camera2D.new()
+	camera.name = "camera"
+	player.add_child(camera)
+
 	npc = _spawn_entity(ENTITY_RESOURCES.get("npc"))
 	npc.global_position = (origin + Vector2i(5, 0)) * Constants.TILE_SIZE
 
