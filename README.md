@@ -15,7 +15,7 @@ A finished version of the game can be played at https://ecodevguy.itch.io/the-go
 
 [Part 3 - Entities, Resources, and the Map](https://alexshopov.com/2026/03/29/the-godot-roguelike-basic-set-part-3-entities-resources-and-the-map/)
 
-[Part 4 - Procedural Dungeon Generation](https://alexshopov.com/2026/03/29/the-godot-roguelike-basic-set-part-3-entities-resources-and-the-map/)
+[Part 4 - Procedural Dungeon Generation](https://alexshopov.com/2026/04/06/part-4-procedural-dungeon-generation/)
 
 
 ## Credits
