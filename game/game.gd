@@ -1,7 +1,7 @@
 class_name Game
 extends Node
 
-const GAME_SIZE := Vector2i(40, 22)
+const GAME_SIZE := Vector2i(80, 45)
 
 @onready var entity_manager : EntityManager = $EntityManager
 @onready var event_handler : EventHandler = $EventHandler
@@ -12,9 +12,7 @@ func _ready() -> void:
 	print("Welcome to the dungeon.")
 
 	map.init(GAME_SIZE)
-	@warning_ignore("integer_division")
-	var center := GAME_SIZE / 2
-	entity_manager.init(center)
+	entity_manager.init(map.origin)
 
 
 func _input(event: InputEvent) -> void:

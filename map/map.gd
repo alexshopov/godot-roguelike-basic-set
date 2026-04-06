@@ -1,47 +1,28 @@
 class_name Map
 extends TileMapLayer
 
-enum MapTileType {
-	FLOOR_1,
-	FLOOR_2,
-	WALL
-}
+@export var room_max_size : int = 10
+@export var room_min_size : int = 6
+@export var max_rooms : int = 30
 
-const MAP_TILE_RESOURCES := {
-	MapTileType.FLOOR_1: preload("res://data/map_tiles/floor_1.tres"),
-	MapTileType.FLOOR_2: preload("res://data/map_tiles/floor_2.tres"),
-	MapTileType.WALL : preload("res://data/map_tiles/wall.tres")
-}
-
+var origin : Vector2i : 
+	get():
+		return dungeon_generator.origin
 var map_size : Vector2i
 var tiles : Dictionary[Vector2i, MapTileResource] = {}
 
+@onready var dungeon_generator : DungeonGenerator = DungeonGenerator.new(self)
 @onready var source_id := tile_set.get_source_id(0)
 
 
 func init(new_map_size: Vector2i) -> void:
 	map_size = new_map_size
+	dungeon_generator.generate()
 
-	var tile : Vector2
-	var tile_resource: MapTileResource
 
-	for x: int in range(map_size.x):
-		for y: int in range(map_size.y):
-			tile = Vector2(x, y)
-
-			if randf() < 0.85:
-				tile_resource = MAP_TILE_RESOURCES.get(MapTileType.FLOOR_1)
-			else:
-				tile_resource = MAP_TILE_RESOURCES.get(MapTileType.FLOOR_2)
-
-			tiles.set(tile, tile_resource)
-			set_cell(tile, source_id, tile_resource.atlas_coord)
-
-	for x: int in range(10, 15):
-		tile = Vector2i(x, 8)
-		tile_resource = MAP_TILE_RESOURCES.get(MapTileType.WALL)
-		tiles.set(tile, tile_resource)
-		set_cell(tile, source_id, tile_resource.atlas_coord)
+func clear_map() -> void:
+	tiles.clear()
+	clear()
 
 
 func tile_to_global(tile: Vector2i) -> Vector2:
@@ -70,9 +51,8 @@ func save() -> Dictionary:
 
 
 func load(save_data: Dictionary) -> void:
-	tiles.clear()
-	clear()
-
+	clear_map()
+	
 	for data: String in save_data:
 		var tile : Vector2i = str_to_var(data)
 		var tile_map_resource := ResourceLoader.load(save_data[data])
