@@ -67,8 +67,8 @@ func _rectanguar_room(new_bounds: Rect2i) -> Rect2i:
 	bounds.position += Vector2i.ONE
 
 	var tile : Vector2
-	for x in range(bounds.position.x + 1, bounds.end.x):
-		for y in range(bounds.position.y + 1, bounds.end.y):
+	for x in range(bounds.position.x, bounds.end.x):
+		for y in range(bounds.position.y, bounds.end.y):
 			tile = Vector2i(x, y)
 			_set_floor_tile(tile)
 
