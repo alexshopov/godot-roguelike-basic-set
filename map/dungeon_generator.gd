@@ -51,16 +51,6 @@ func generate() -> void:
 		rooms.append(new_room)
 
 
-func clear() -> void:
-	_parent.clear_map()
-
-	for x: int in range(_parent.map_size.x):
-		for y: int in range(_parent.map_size.y):
-			var tile := Vector2i(x, y)
-			_parent.tiles.set(tile, MAP_TILE_RESOURCES[MapTileType.WALL])
-			_parent.set_cell(tile, _parent.source_id, MAP_TILE_RESOURCES[MapTileType.WALL].atlas_coord)
-
-
 func _rectanguar_room(new_bounds: Rect2i) -> Rect2i:
 	var bounds := new_bounds
 	# inset the room position by 1 so it doesn't share a wall with any other rooms
