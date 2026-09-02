@@ -7,9 +7,9 @@ enum MapTileType {
 }
 
 const MAP_TILE_RESOURCES := {
-	MapTileType.FLOOR_1: preload("res://data/map_tiles/floor_1.tres"),
-	MapTileType.FLOOR_2: preload("res://data/map_tiles/floor_2.tres"),
-	MapTileType.WALL : preload("res://data/map_tiles/wall.tres")
+	MapTileResource.Type.FLOOR_01: preload("res://data/map_tiles/floor_1.tres"),
+	MapTileResource.Type.FLOOR_02: preload("res://data/map_tiles/floor_2.tres"),
+	MapTileResource.Type.WALL: preload("res://data/map_tiles/wall.tres")
 }
 
 var origin: Vector2i

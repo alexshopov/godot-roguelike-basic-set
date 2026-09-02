@@ -32,7 +32,7 @@ metadata/_custom_type_script = "uid://dfd8tymo4ujr2"
 script = ExtResource("5_dakft")
 
 [node name="ExploredTiles" type="TileMapLayer" parent="Map" unique_id=180335178]
-self_modulate = Color(0.18717614, 0.18717614, 0.18717614, 1)
+self_modulate = Color(0.29954746, 0.29954746, 0.29954743, 1)
 tile_set = SubResource("TileSet_dakft")
 
 [node name="VisibleTiles" type="TileMapLayer" parent="Map" unique_id=1539863224]

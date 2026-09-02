@@ -33,7 +33,7 @@ func load(game: Game) -> void:
 
 	game.map.load(save_data.get(MAP_DATA))
 	game.entity_manager.load(save_data.get(PLAYER_DATA))
-	game.map.update_player_fov(game.entity_manager.player)
+	game.map.update_fov(game.entity_manager.player)
 
 	print("Game loaded.")
 

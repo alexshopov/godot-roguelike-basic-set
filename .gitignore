@@ -4,3 +4,5 @@
 
 /.vscode
 .claude/
+
+.DS_Store

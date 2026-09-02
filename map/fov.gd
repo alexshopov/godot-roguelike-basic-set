@@ -2,67 +2,56 @@ class_name FOV
 
 signal fov_updated
 
+var _map : Map 
 var _explored_layer : TileMapLayer
 var _visible_layer : TileMapLayer
-var _map : Map 
 var _source_id : int
-var _visible_tiles : Array[Vector2i]
+var _visible_tilemap : Array[Vector2i]
 
 
 func _init(new_map: Map) -> void:
 	_map = new_map
-	_explored_layer = _map.explored_tiles
-	_visible_layer = _map.visible_tiles
+	_explored_layer = _map.explored_tilemap
+	_visible_layer = _map.visible_tilemap
 	_source_id = _explored_layer.tile_set.get_source_id(0)
 
-	clear()
 
-
-func update(origin: Vector2i, radius: float) -> void:
+func update(tile: Vector2i, radius: float) -> void:
 	_clear_visible()
-	_set_visible(origin)
+	_set_visible(tile)
 
 	for octant in range(8):
-		_scan(origin, radius, 1, 1.0, 0.0, octant)
+		_scan(tile, radius, 1, 1.0, 0.0, octant)
 
 	fov_updated.emit()
 
 
-func update_player_fov(player: Entity) -> void:
-	var tile := _map.global_to_tile(player.global_position)
-	update(tile, 8)
-	# update(tile, player.stats.vision_radius)
-
-
-func clear() -> void:
-	_visible_tiles.clear()
-	_visible_layer.clear()
-
-
 func _clear_visible() -> void:
-	for tile in _visible_tiles:
-		_map.tiles[tile].visible = false
+	# for tile in _visible_tilemap:
+	# 	_map.tiles[tile].visible = false
 
-	clear()
+	_visible_tilemap.clear()
+	_visible_layer.clear()
 
 
 func _set_visible(tile: Vector2i) -> void:
 	if not _map.is_in_bounds(tile):
 		return
 
-	_visible_tiles.append(tile)
+	_visible_tilemap.append(tile)
 	_set_explored(tile)
 	_visible_layer.set_cell(tile, _source_id, _map.tiles[tile].atlas_coord)
 
 
 func _set_explored(tile: Vector2i) -> void:
-	_map.tiles[tile].visible = true
+	# _map.tiles[tile].visible = true
 
-	if _map.tiles[tile].explored:
+	# if _map.tiles[tile].explored:
+	if _map.explored.has(tile):
 		return
 
-	_map.tiles[tile].explored = true
-	_map.explored_tiles.set_cell(tile, _source_id, _map.tiles[tile].atlas_coord)
+	_map.explored.set(tile, true)
+	_map.explored_tilemap.set_cell(tile, _source_id, _map.tiles[tile].atlas_coord)
 
 
 func _scan(origin: Vector2i, radius: float, row: int, start_slope: float, end_slope: float, octant: int) -> void:

@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_8hcoi")
+type = 1
 walkable = true
 transparent = true
 atlas_coord = Vector2i(1, 0)

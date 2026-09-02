@@ -11,7 +11,7 @@ const GAME_SIZE := Vector2i(80, 45)
 func _ready() -> void:
 	print("Welcome to the dungeon.")
 
-	entity_manager.player_updated.connect(map.update_player_fov)
+	entity_manager.player_updated.connect(map.update_fov)
 
 	map.init(GAME_SIZE)
 	entity_manager.init(map.origin)

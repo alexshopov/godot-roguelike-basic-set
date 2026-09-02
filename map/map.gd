@@ -10,10 +10,11 @@ var origin : Vector2i :
 		return dungeon_generator.origin
 var map_size : Vector2i
 var tiles : Dictionary[Vector2i, MapTileResource] = {}
+var explored : Dictionary[Vector2i, bool] = {}
 
 @onready var dungeon_generator : DungeonGenerator = DungeonGenerator.new(self)
-@onready var explored_tiles : TileMapLayer = $ExploredTiles
-@onready var visible_tiles : TileMapLayer = $VisibleTiles
+@onready var explored_tilemap : TileMapLayer = $ExploredTiles
+@onready var visible_tilemap : TileMapLayer = $VisibleTiles
 @onready var fov : FOV = FOV.new(self)
 
 
@@ -24,21 +25,23 @@ func init(new_map_size: Vector2i) -> void:
 
 func clear_map() -> void:
 	tiles.clear()
-	explored_tiles.clear()
-	visible_tiles.clear()
+
+	explored_tilemap.clear()
+	explored.clear()
+	visible_tilemap.clear()
 
 
-func update_player_fov(player: Entity) -> void:
+func update_fov(player: Entity) -> void:
 	var tile := global_to_tile(player.global_position)
 	fov.update(tile, player.vision_radius)
 
 
 func tile_to_global(tile: Vector2i) -> Vector2:
-	return explored_tiles.map_to_local(tile)
+	return explored_tilemap.map_to_local(tile)
 
 
 func global_to_tile(global: Vector2) -> Vector2i:
-	return explored_tiles.local_to_map(global) 
+	return explored_tilemap.local_to_map(global) 
 
 
 func is_in_bounds(tile: Vector2i) -> bool:
@@ -53,21 +56,30 @@ func save() -> Dictionary:
 	var save_data: Dictionary = {}
 
 	for tile in tiles:
-		save_data.set(var_to_str(tile), tiles[tile].get_state())
+		var entry : Dictionary = {}
+		entry.set("type", tiles[tile].type)
+
+		if explored.has(tile):
+			entry.set("explored", true)
+		
+		save_data.set(var_to_str(tile), entry)
 
 	return save_data
 
 
 func load(save_data: Dictionary) -> void:
-	var source_id := explored_tiles.tile_set.get_source_id(0)
+	var source_id := explored_tilemap.tile_set.get_source_id(0)
 
 	clear_map()
 	
 	for data: String in save_data:
+		var entry : Dictionary = save_data.get(data)
 		var tile : Vector2i = str_to_var(data)
-		var tile_map_resource := MapTileResource.new()
-		tile_map_resource.set_state(save_data[data])
+
+		var type : MapTileResource.Type = entry.type
+		var tile_map_resource : MapTileResource = dungeon_generator.MAP_TILE_RESOURCES[type]
 		tiles.set(tile, tile_map_resource)
 
-		if tile_map_resource.explored:
-			explored_tiles.set_cell(tile, source_id, tile_map_resource.atlas_coord)
+		if entry.has("explored"):
+			explored.set(tile, true)
+			explored_tilemap.set_cell(tile, source_id, tile_map_resource.atlas_coord)
