@@ -1,11 +1,5 @@
 class_name DungeonGenerator
 
-enum MapTileType {
-	FLOOR_1,
-	FLOOR_2,
-	WALL
-}
-
 const MAP_TILE_RESOURCES := {
 	MapTileResource.Type.FLOOR_01: preload("res://data/map_tiles/floor_1.tres"),
 	MapTileResource.Type.FLOOR_02: preload("res://data/map_tiles/floor_2.tres"),
@@ -57,7 +51,7 @@ func clear() -> void:
 	for x: int in range(_parent.map_size.x):
 		for y: int in range(_parent.map_size.y):
 			var tile := Vector2i(x, y)
-			_parent.tiles.set(tile, MAP_TILE_RESOURCES[MapTileType.WALL].duplicate())
+			_parent.tiles.set(tile, MAP_TILE_RESOURCES[MapTileResource.Type.WALL])
 
 
 func _rectanguar_room(new_bounds: Rect2i) -> Rect2i:
@@ -90,8 +84,8 @@ func _tunnel_between(start: Vector2i, end: Vector2i) -> void:
 func _set_floor_tile(tile: Vector2i) -> void:
 	var tile_resource: MapTileResource
 	if randf() < 0.85:
-		tile_resource = MAP_TILE_RESOURCES.get(MapTileType.FLOOR_1).duplicate()
+		tile_resource = MAP_TILE_RESOURCES.get(MapTileResource.Type.FLOOR_01)
 	else:
-		tile_resource = MAP_TILE_RESOURCES.get(MapTileType.FLOOR_2).duplicate()
+		tile_resource = MAP_TILE_RESOURCES.get(MapTileResource.Type.FLOOR_02)
 
 	_parent.tiles.set(tile, tile_resource)

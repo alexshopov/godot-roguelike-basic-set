@@ -27,9 +27,6 @@ func update(tile: Vector2i, radius: float) -> void:
 
 
 func _clear_visible() -> void:
-	# for tile in _visible_tilemap:
-	# 	_map.tiles[tile].visible = false
-
 	_visible_tilemap.clear()
 	_visible_layer.clear()
 
@@ -44,9 +41,6 @@ func _set_visible(tile: Vector2i) -> void:
 
 
 func _set_explored(tile: Vector2i) -> void:
-	# _map.tiles[tile].visible = true
-
-	# if _map.tiles[tile].explored:
 	if _map.explored.has(tile):
 		return
 
